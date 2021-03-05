@@ -37,32 +37,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  scan:
-    name: Scanning
-    runs-on: ubuntu-latest
-    needs: [lint]
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        
-      - name: Build test image
-        run: docker build -t docker-ansible-test .
-
-      - name: Scan test image
-        uses: anchore/scan-action@v2.0.4
-        with:
-          image: "docker-ansible-test"
-          fail-build: false
-          
-      - name: grype scan JSON results
-        run: for j in `ls ./anchore-reports/*.json`; do echo "---- ${j} ----"; cat ${j}; echo; done
-      
   # Test the image builds and works correctly.
   test:
     name: Testing
     runs-on: ubuntu-latest
-    needs: [lint,scan]
+    needs: [lint]
 
     steps:
       - name: Checkout
@@ -84,7 +63,7 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
-    needs: [lint,scan,test]
+    needs: [lint,test]
     if: github.ref == 'refs/heads/main'
 
     steps:
