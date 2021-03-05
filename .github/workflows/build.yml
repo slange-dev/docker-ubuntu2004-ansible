@@ -99,7 +99,7 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           platforms: linux/amd64 #, linux/arm64, linux/riscv64, linux/ppc64le, linux/s390x, linux/386, linux/arm/v7, linux/arm/v6
           push: true
-          tags: slangedev/${{ github.repository }}:latest
+          tags: slangedev/docker-ubuntu2004-ansible:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
 
@@ -109,7 +109,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          repository: slangedev/${{ github.repository }}
+          repository: slangedev/docker-ubuntu2004-ansible
 
       - name: Image digest
         id: image_digest
