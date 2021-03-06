@@ -4,15 +4,13 @@
 [![Docker pulls](https://img.shields.io/docker/pulls/slangedev/docker-ubuntu2004-ansible)](https://hub.docker.com/r/slangedev/docker-ubuntu2004-ansible/)
 [![Version](https://img.shields.io/docker/v/slangedev/docker-ubuntu2004-ansible/latest)](https://hub.docker.com/r/slangedev/docker-ubuntu2004-ansible/)
 [![Image Size](https://img.shields.io/docker/image-size/slangedev/docker-ubuntu2004-ansible/latest)](https://hub.docker.com/r/slangedev/docker-ubuntu2004-ansible/)
-
+[![CodeFactor](https://www.codefactor.io/repository/github/slange-dev/docker-ubuntu2004-ansible/badge?s=b1a51c901296a327cd21e1d826c5a811bc12185a)](https://www.codefactor.io/repository/github/slange-dev/docker-ubuntu2004-ansible)
 
 Ubuntu 20.04 LTS (Focal Fossa) Docker container for Ansible playbook and role testing.
 
 ## Tags
 
   - `latest`: Latest stable version of Ansible.
-
-The latest tag is a lightweight image for basic validation of Ansible playbooks.
 
 ## How to Build
 
@@ -49,7 +47,6 @@ Contributions are what make the open source community such an amazing place to b
 
 ![image](https://user-images.githubusercontent.com/16810959/29695161-2d8ef9e6-890f-11e7-8b1d-cf3e0c281755.png)
 
-
 ## 💛 Support the project
 
 If this project was useful to you in some form, I would be glad to have your support.  It will help to keep the project alive and to have more time to work on Open Source.
@@ -70,4 +67,4 @@ You can also contribute with
 
 ## Copyright
 
-Copyright © in 2021 by [slange-dev](https://github.com/slange-dev).
+Created in 2021 by [slange-dev](https://github.com/slange-dev).
