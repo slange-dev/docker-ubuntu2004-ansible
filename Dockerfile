@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 LABEL maintainer="slange-dev"
 
-ENV DEBIAN_FRONTEND noninteractive
+ARG DEBIAN_FRONTEND=noninteractive
 
 ENV pip_packages "ansible"
 
@@ -20,9 +20,9 @@ RUN apt-get update \
        python3-yaml \
        software-properties-common \
        rsyslog systemd systemd-cron iproute2 \
+    && apt-get clean \
     && rm -Rf /var/lib/apt/lists/* \
-    && rm -Rf /usr/share/doc && rm -Rf /usr/share/man \
-    && apt-get clean
+    && rm -Rf /usr/share/doc && rm -Rf /usr/share/man
 RUN sed -i 's/^\($ModLoad imklog\)/#\1/' /etc/rsyslog.conf
 
 # Fix potential UTF-8 errors with ansible-test.
