@@ -31,6 +31,7 @@ RUN locale-gen en_US.UTF-8
 # Install Ansible via Pip.
 RUN pip3 install $pip_packages
 
+# Initctl faker
 COPY initctl_faker .
 RUN chmod +x initctl_faker && rm -fr /sbin/initctl && ln -s /initctl_faker /sbin/initctl
 
@@ -43,5 +44,6 @@ RUN echo "[local]\nlocalhost ansible_connection=local" > /etc/ansible/hosts
 RUN rm -f /lib/systemd/system/systemd*udev* \
   && rm -f /lib/systemd/system/getty.target
 
+# Add volume and systemd
 VOLUME ["/sys/fs/cgroup", "/tmp", "/run"]
 CMD ["/lib/systemd/systemd"]
